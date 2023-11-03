@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ILScriptDemo", "ILScriptDemo\ILScriptDemo.csproj", "{DE947033-C27A-4377-AB88-B8F12F7C613E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DE947033-C27A-4377-AB88-B8F12F7C613E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE947033-C27A-4377-AB88-B8F12F7C613E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE947033-C27A-4377-AB88-B8F12F7C613E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE947033-C27A-4377-AB88-B8F12F7C613E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

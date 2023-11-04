@@ -1,6 +1,6 @@
 # ILScriptDemo
 
-Define and run IL code directly from Avalonia UI Xaml.
+Define and run [Microsoft Intermediate Language (MSIL)](https://learn.microsoft.com/en-us/dotnet/api/system.reflection.emit.opcodes?view=net-7.0) code directly from Avalonia UI Xaml.
 
 ```xaml
 <Window xmlns="https://github.com/avaloniaui"
@@ -27,3 +27,10 @@ Define and run IL code directly from Avalonia UI Xaml.
   </Button>
 </Window>
 ```
+
+### Supported OpCodes
+
+- Ldstr
+- Call
+- Ret
+

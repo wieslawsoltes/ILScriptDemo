@@ -1,45 +1,13 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Emit;
 using Avalonia.Markup.Xaml;
-using Avalonia.Metadata;
+using ILScriptDemo.IL.Opcodes;
 
-namespace ILScriptDemo;
-
-public class ILScript
-{
-    [Content] 
-    public List<Opcode> Opcodes { get; set; } = new();
-}
-
-public abstract class Opcode { }
-
-public class Ldstr : Opcode
-{
-    public string Value { get; set; }
-}
-
-public class Call : Opcode
-{
-    public Type Type { get; set; }
-    public string Method { get; set; }
-    public List<Type> Parameters { get; set; } = new();
-}
-
-public class Ret : Opcode { }
+namespace ILScriptDemo.IL;
 
 public static class ILRunner
 {
-    public static void Execute(string path)
-    {
-        var ilScript = (ILScript?)AvaloniaRuntimeXamlLoader.Load("ILScript.xaml");
-        if (ilScript is not null)
-        {
-            Execute(ilScript);
-        }
-    }
-
     public static void Execute(ILScript ilScript)
     {
         var dynamicMethod = new DynamicMethod($"Script", typeof(void), Type.EmptyTypes);
@@ -51,7 +19,7 @@ public static class ILRunner
             {
                 ilGenerator.Emit(OpCodes.Ldstr, ldstr.Value);
             }
-            if (opcode is Call call)
+            else if (opcode is Call call)
             {
                 var methods = call.Type.GetMethods().Where(x => x.Name == call.Method);
                 var mi = methods.FirstOrDefault(x =>
@@ -83,5 +51,14 @@ public static class ILRunner
 
         var action = (Action)dynamicMethod.CreateDelegate(typeof(Action));
         action();
+    }
+
+    public static void Execute(string path)
+    {
+        var ilScript = (ILScript?)AvaloniaRuntimeXamlLoader.Load("ILScript.xaml");
+        if (ilScript is not null)
+        {
+            Execute(ilScript);
+        }
     }
 }

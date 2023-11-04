@@ -7,19 +7,17 @@
         x:Class="ILScriptDemo.MainWindow"
         Width="500" Height="500"
         Title="ILScriptDemo">
-  <Window.Resources>
-    <ILScript x:Key="ILScript">
-      <Ldstr Value="Welcome to the creative ILScript!" />
-      <Call Type="{x:Type sys:Console}" Method="WriteLine">
-        <Call.Parameters>
-          <x:Type TypeName="sys:String" />
-        </Call.Parameters>
-      </Call>
-      <Ret />
-    </ILScript>
-  </Window.Resources>
-  <Button Content="Run IL"
-          HorizontalAlignment="Center"
-          VerticalAlignment="Center"
-          Click="Button_OnClick" />
+  <Button Content="Run IL">
+    <ILScript.Script>
+      <ILScript>
+        <Ldstr Value="Welcome to the creative ILScript!" />
+        <Call Type="{x:Type sys:Console}" Method="WriteLine">
+          <Call.Parameters>
+            <x:Type TypeName="sys:String" />
+          </Call.Parameters>
+        </Call>
+        <Ret />
+      </ILScript>
+    </ILScript.Script>
+  </Button>
 </Window>

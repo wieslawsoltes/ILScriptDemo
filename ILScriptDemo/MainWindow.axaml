@@ -10,7 +10,7 @@
   <Button Content="Run IL">
     <ILScript.Script>
       <ILScript>
-        <Ldstr Value="Welcome to the creative ILScript!" />
+        <Ldstr Value="{Binding $parent[Window].Title, StringFormat={}Welcome to the {0}}" />
         <Call Type="{x:Type sys:Console}" Method="WriteLine">
           <Call.Parameters>
             <x:Type TypeName="sys:String" />
